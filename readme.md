@@ -354,7 +354,7 @@ This project is licensed under the MIT License
 
 ---
 
-## How to cite **NCBI Assembly Metadata Harvester** (this project)
+## How to cite **Nautilus (NCBI Assembly Taxonomy & bIoSample Lineage Unified System)** (this project)
 
 If you use this tool in your work, please cite it as:
 Leandro de Mattos Pereira, Adriana Rego & Pedro Leão (2025). **Nautilus (NCBI Assembly Taxonomy & bIoSample Lineage Unified System)** (v0.1.0). GitHub repository. MIT License.
