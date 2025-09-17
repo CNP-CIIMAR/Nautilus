@@ -1,4 +1,8 @@
 
+<p align="center">
+  <img src="assets/logo.png" alt="NAUTILUS logo" width="300"/>
+</p>
+
 # Nautilus (NCBI Assembly Taxonomy & bIoSample Lineage Unified System)
 
 Fetch assembly-level metadata from NCBI using the **NCBI Datasets CLI**, enrich it with **Taxonomy Lineage** (ETE3) and **BioSample** fields (Entrez), append to a **single TSV**, and rebuild a **filtered TSV** with high-quality geography/biome entries.
