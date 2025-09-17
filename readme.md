@@ -1,5 +1,5 @@
 
-# NCBI Assembly Metadata Harvester
+# Nautilus (NCBI Assembly Taxonomy & bIoSample Lineage Unified System)
 
 Fetch assembly-level metadata from NCBI using the **NCBI Datasets CLI**, enrich it with **Taxonomy Lineage** (ETE3) and **BioSample** fields (Entrez), append to a **single TSV**, and rebuild a **filtered TSV** with high-quality geography/biome entries.
 
@@ -330,46 +330,31 @@ Retry modes try to replace `"Unknown"` with real values later.
 - The script writes **its own header** if the output is empty.  
 - Use `--no-input-header` if your input has **no** header row.
 
----
-
-## Citations, Compliance & Fair Use
-
-- Use of NCBI resources must comply with their policies:
-  - Identify yourself: set **ENTREZ_EMAIL** (or `--email`).
-  - Respect rate limits: use `--delay` and consider **NCBI_API_KEY**.
-- If you publish results, cite:
-  - **NCBI Datasets CLI**
-  - **NCBI Entrez / E-utilities**
-  - **ETE3 Toolkit** (for taxonomy lineage)
-
----
-
-## License
-
-Add your preferred license here (e.g., MIT). Ensure compliance with third-party tools’ licenses (NCBI Datasets CLI, ETE3).
-
----
-
-### Quick Copy-Paste: End-to-End Example
-
-```bash
-# 0) Activate env
-conda activate ncbi-meta
-
-# 1) Build an IDs list (taxon example: 1117 is Pseudomonas)
-datasets summary genome taxon 1117 --as-json-lines | dataformat tsv genome --fields accession > ids_genomes.tsv
-{ echo "Assembly Accession"; cat ids_genomes.tsv; } > ids_with_header.tsv
-
-# 2) Full run
-nohup python get_metadata_update.py   ids_with_header.tsv   metadata_all.tsv   --email you@example.org   --delay 0.35   > run.log 2>&1 &
-
-# 3) Heal only lat/lon & biome later
-python get_metadata_update.py   ids_with_header.tsv   metadata_all.tsv   --retry-only   --retry-columns biome,latlon   --retry-changed-only   --email you@example.org   --delay 0.35
-```
-
 ## License:
 This project is licensed under the MIT License 
 
-More about - Authors:
-Junior Researcher, Leandro de Mattos Pereira, Junior Researcher, Dra. Adriana Rego.
-CNP team, Dr. Pedro Leão, Researcher Leader
+# References
+
+1. O’Leary, N. A., Cox, E., Holmes, J. B., Anderson, W. R., Falk, R., Hem, V., Tsuchiya, M. T. N., **et al.** (2024). *Exploring and retrieving sequence and metadata for species across the tree of life with NCBI Datasets*. **Scientific Data**, 11, 623. https://doi.org/10.1038/s41597-024-03571-y.  
+   Also see: NCBI Datasets CLI docs and reference pages. citeturn0view0turn0search15turn0search20
+
+2. Sayers, E. W. (2009–2022). *A General Introduction to the E-utilities*; and *Entrez Programming Utilities Help*. **NCBI Bookshelf**. https://www.ncbi.nlm.nih.gov/books/NBK25497/ and https://www.ncbi.nlm.nih.gov/books/NBK25501/. citeturn0search6turn0search1
+
+3. Huerta-Cepas, J., Serra, F., & Bork, P. (2016). *ETE 3: Reconstruction, Analysis, and Visualization of Phylogenomic Data*. **Molecular Biology and Evolution**, 33(6), 1635–1638. https://doi.org/10.1093/molbev/msw046. citeturn3view0
+
+4. Barrett, T., Clark, K., Gevorgyan, R., Gorelenkov, V., Gribov, E., Karsch-Mizrachi, I., **et al.** (2012). *BioProject and BioSample databases at NCBI: facilitating capture and organization of metadata*. **Nucleic Acids Research**, 40(D1), D57–D63. https://doi.org/10.1093/nar/gkr1163. citeturn4search3turn4search1
+
+5. Kitts, P. A., Church, D. M., Thibaud-Nissen, F., Choi, J., Hem, V., Sapojnikov, V., **et al.** (2016). *Assembly: a resource for assembled genomes at NCBI*. **Nucleic Acids Research**, 44(D1), D73–D80. https://doi.org/10.1093/nar/gkv1226. citeturn4search2turn4search0
+
+6. Cock, P. J. A., Antao, T., Chang, J. T., Chapman, B. A., Cox, C. J., Dalke, A., **et al.** (2009). *Biopython: freely available Python tools for computational molecular biology and bioinformatics*. **Bioinformatics**, 25(11), 1422–1423. https://doi.org/10.1093/bioinformatics/btp163. citeturn1search4turn1search6
+
+7. NCBI Developers. *APIs – Entrez Programming Utilities (E-utilities)* (overview page). https://www.ncbi.nlm.nih.gov/home/develop/api/. citeturn0search11
+
+> **Compliance**: Please follow NCBI usage guidelines—identify yourself with `ENTREZ_EMAIL`, respect rate limits, and consider using `NCBI_API_KEY`. See NCBI’s guidance on citing services. citeturn0search9
+
+---
+
+## How to cite **NCBI Assembly Metadata Harvester** (this project)
+
+If you use this tool in your work, please cite it as:
+Leandro de Mattos Pereira, Adriana Rego & Pedro Leão (2025). **Nautilus (NCBI Assembly Taxonomy & bIoSample Lineage Unified System)** (v0.1.0). GitHub repository. MIT License.
