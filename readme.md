@@ -366,3 +366,10 @@ nohup python get_metadata_update.py   ids_with_header.tsv   metadata_all.tsv   -
 # 3) Heal only lat/lon & biome later
 python get_metadata_update.py   ids_with_header.tsv   metadata_all.tsv   --retry-only   --retry-columns biome,latlon   --retry-changed-only   --email you@example.org   --delay 0.35
 ```
+
+## License:
+This project is licensed under the MIT License 
+
+More about - Authors:
+Junior Researcher, Leandro de Mattos Pereira, Junior Researcher, Dra. Adriana Rego.
+CNP team, Dr. Pedro Leão, Researcher Leader
